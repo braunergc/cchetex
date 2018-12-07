@@ -1,0 +1,118 @@
+\ProvidesPackage{beamerthemeALUF}[2014/03/26]
+
+\definecolor{ALUFred}{RGB}{185,0,36}
+\definecolor{ALUFblue}{RGB}{8,63,146}
+\definecolor{ALUFwhite}{RGB}{255,255,255}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Outer theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useoutertheme[width=.15\paperwidth]{sidebar}
+%\setlength{\beamer@headheight}{.165\paperheight}
+\setlength{\beamer@headheight}{.13\paperheight}
+\setbeamertemplate{sidebar left}{%
+\vskip7pt
+\insertverticalnavigation{\beamer@sidebarwidth}%
+}
+
+\setbeamertemplate{footline}[text line]{%
+\insertshortauthor\strut\hfill\insertshorttitle\hfill\insertshortdate\hspace{1em}\insertframenumber/\inserttotalframenumber}
+
+\addtobeamertemplate{frametitle}{}{%
+\begin{pgfpicture}
+    \pgf@relevantforpicturesizefalse
+    \pgftransformxshift{-\Gm@lmargin}
+    \pgftransformyshift{\beamer@headheight+18pt}
+    \pgfpathmoveto{\pgfpoint{.15\paperwidth}{0pt}}
+    \pgfpathlineto{\pgfpoint{.15\paperwidth}{-\beamer@headheight}}
+    \pgfsetlinewidth{3.5pt}
+    \pgfsetinnerlinewidth{1pt}
+    \pgfsetinnerstrokecolor{ALUFred}
+    \pgfsetcolor{white}
+    \pgfusepath{stroke}
+    \pgfpathmoveto{\pgfpoint{.15\paperwidth}{\paperheight}}
+    \pgfpathlineto{\pgfpoint{.15\paperwidth}{-.99\paperheight}}
+    \pgfsetlinewidth{0.5pt}
+    \pgfsetinnerlinewidth{0pt}
+    \pgfsetcolor{ALUFred}
+    \pgfusepath{stroke}
+    \pgftext[at=\pgfpoint{.075\paperwidth}{-.97\paperheight},center,base]{\includegraphics[scale=.2]{figs/uepbnome.pdf}~\includegraphics[scale=.3]{figs/LOGO_CCHE_NOVO}}
+\end{pgfpicture}%
+\vskip-25pt%
+}
+
+\addtobeamertemplate{title page}{%
+\usebeamertemplate{title background}%
+\vskip .1\paperheight%
+}
+{}
+
+\newcommand\MakeBlueBackgroud{%
+    \pgfpathmoveto{\pgfpointorigin}
+    \pgfpathrectanglecorners{\pgfpoint{0pt}{0pt}}{\pgfpoint{\paperwidth}{-\paperheight}}
+    \pgfsetfillcolor{ALUFblue}
+    \pgfusepath{fill}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Title Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{title background}{%
+\begin{pgfpicture}
+    \pgf@relevantforpicturesizefalse
+    \pgftransformxshift{-\Gm@lmargin}
+    \pgftransformyshift{.5pt}
+    \pgfusepath{fill}
+    %\MakeBlueBackgroud
+
+    % Logo
+    \pgftext[at=\pgfpoint{.31\paperwidth}{-.17\paperheight},center,base]{    \includegraphics[height=.16\paperheight]{figs/Marca-da-UEPB-2}
+    }    
+    \pgftext[at=\pgfpoint{.89\paperwidth}{-.17\paperheight},center,base]{    
+        \includegraphics[height=.17\paperheight]{figs/LOGO_CCHE_NOVO}
+    }
+    \pgftext[at=\pgfpoint{.15\paperwidth}{-0.98\paperheight},right,base]{    
+        \includegraphics[scale=1.02]{figs/quadro}
+    }
+    
+
+\end{pgfpicture}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inner Theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useinnertheme{rectangles}
+\setbeamertemplate{navigation symbols}{}
+
+\setlength{\leftmargini}{.5em}
+\setlength{\leftmarginii}{1.0em}
+\setlength{\leftmarginiii}{1.5em}
+\setlength{\leftmarginiv}{2.0em}
+\setlength{\leftmarginv}{2.5em}
+\setlength{\leftmarginvi}{3.0em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colours
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usecolortheme[named=ALUFred]{structure}
+\usecolortheme{orchid}
+\setbeamercolor{title page}{fg=ALUFred, bg=ALUFwhite}
+\setbeamercolor{logo}{bg=ALUFred}
+\setbeamercolor{frametitle}{fg=ALUFwhite,bg=ALUFred}
+\setbeamercolor{section in sidebar}{fg=ALUFred}
+\setbeamerfont{section in sidebar}{series=\bfseries}
+\setbeamercolor{block title}{bg=black!65!white,fg=white}
+\setbeamercolor{block body}{bg=black!15!white}
+
+\newcommand\ThankYouFrame{
+    \begin{frame}[plain,t]
+        \begin{pgfpicture}
+            \pgf@relevantforpicturesizefalse
+            \pgftransformxshift{-\Gm@lmargin}
+            \pgftransformyshift{5.5pt}
+            \MakeBlueBackgroud
+        \end{pgfpicture}
+    \end{frame}
+}

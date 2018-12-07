@@ -1,0 +1,107 @@
+\chapter[Exemplo de capítulo com bastante notação matemática]{Exemplo de capítulo com bastante notação matemática}
+
+Este capítulo contém alguns exemplos de ambientes matemáticos.
+
+\section{Como criar uma definição}
+
+\begin{defi}
+Uma Topologia sobre o conjunto $X$ é uma família $\tau
+\subset \beta(X)$ que satisfaz $ \mathbb{S} $:
+\begin{enumerate}
+ \item$\emptyset,X$ pertencem a $\tau;$
+ \item Seja  $\{A_{\alpha} \in \tau /\alpha \in \Gamma\}$
+ uma família arbitrária de subconjuntos de  $\tau$ então, a união dos elementos dessa família ainda pertence a  $\tau$, ou seja, $\bigcup \limits_{\alpha \in \Gamma} A_{\alpha}\in\tau;$
+ \item Sejam $B_{1},B_{2},B_{3},..., B_{n} \in \tau$ uma família finita de subconjuntos de $\tau$, com $n \geq 1$, então
+ interseção dessa família ainda pertence a $\tau$, ou seja, $\bigcap\limits_{i=1}^{n} B_{i}\in \tau.$
+\end{enumerate}
+\end{defi}
+
+\section{Como criar uma observação}
+
+\begin{obs}
+
+\item Os elementos da Topologia  $\tau$ caracterizam os Conjuntos Abertos de $X.$
+
+\item O par ordenado $(X,\tau)$ é chamado de Espaço Topológico.
+
+Sim, de fato:
+\item[i)]$\emptyset, X \in \tau$, pois são subconjuntos de $X;$
+\item[ii)]Seja \{$J_{\lambda}\}_{\lambda\in L}$ temos que$J_{\lambda}\in \tau$ então $\bigcup\limits_{\lambda\in L} J_{\lambda}$ é
+    um subconjunto de $X$ e portanto, pertence a $\tau;$
+\item[iii)] Sejam $J_{1},J_{2},...J_{n} \in \tau$ temos que $J_{1}\bigcap J_{2}\bigcap ...J_{n}$ é um suconjunto de $X$ e portanto pertence a $\tau.$
+
+\end{obs}
+
+\section{Como criar um exemplo}
+
+\begin{ex}{Topologia Euclidiana ou Usual} - $\tau_{us}$
+
+Essa topologia é formada por intervalo do $\mathbb{R}^{n}$
+Os dois tipos mais estudados são a Topologia Euclidiana Usual na Reta (ou  de $\mathbb{R}$) e a Topologia Euclidiana Usual (ou do  no Plano Complexo (ou do $\mathbb{R}^{2}$).
+
+Seja a topologia $\tau = \{A \subset \mathbb{R}\}, \emptyset\}$ onde $X = \mathbb{R}$, dizemos que $A \in \tau$, se e somente se, para todo $y \in A$, existe um intervalo aberto $(c,d)$ tal que
+$y \in (c,d) \subset A.$
+
+\item[i)] É fácil notar que $\mathbb{R}, \emptyset \in \tau;$
+
+\item[ii)] Consideremos a família $\{A_{\alpha} \in \tau / \alpha \in\tau\},$
+queremos mostrar que, $\bigcup\limits_{\alpha\in \Gamma} A_{\alpha}\in \tau.$
+
+De fato, considerando $y \in \bigcup\limits_{\alpha\in \Gamma} A_{\alpha}$ ,
+desse modo, existe $\alpha_{0} \in \Gamma$ tal que $y \in A_{\alpha_{0}} \in \tau$, assim, existe $(c,d)$ e
+temos que $y\in (c,d) \subset A_{\alpha_{0}}\subset \bigcup\limits_{\alpha\in \Gamma}A_{\alpha}.$
+
+\item[iii)] Consideremos $B_{1},B_{2}$ subconjuntos finitos de $\tau$, desse modo
+tomemos $y \in B_{1}\bigcap B_{2}$, assim $y\in B_{1}$ e $y\in B_{2}$,
+logo existem $(c_{1}, d_{1})$ e $(c_{2}, d_{2})$ tais que $y$
+$\in0 (c_{1}, d_{1}) \subset B_{1}$ e $y\in (c_{2}, d_{2}) \subset B_{2}.$
+
+Vamos denotar por $c = max(c_{1},c_{2})$ e $d = min(d_{1},d_{2})$, assim temos:
+
+\begin{center}
+ $y \in (c,d) \subset B_{1} \bigcap B_{2}$
+\end{center}
+ 
+Por indução temos  se $B_{1},B_{2},..., B_{n}$ são conjuntos finitos de $\tau$, então, $\bigcap\limits_{i=1}^{n}B_{i}\in\tau.$
+\end{ex}
+
+\section{Como criar um teorema}
+
+\begin{teo}: Seja $(X,\tau)$ um espaço topológico e $ \mathfrak{F}$ a
+família de conjuntos fechados, então:
+\begin{description}
+  \item[i)]$\emptyset, X$ pertencem a $ \mathfrak{F}$;
+  \item[ii)]Considere $F_{1}, F_{2},..., F_{n}$ conjuntos fechados
+  em $X$; então a união finita $\bigcup\limits_{i=1}^{n} F_{i}$ é fechada
+  em $X$;
+  \item[iii)]Considere $\{ F_{\alpha} \in \mathfrak{F} / \alpha \in
+  \Gamma\}$ uma família de elementos arbitrários de $\mathfrak{F}$,
+  então, a interseção arbitrária $\bigcap\limits_{\alpha \in \Gamma}F_{\alpha}$ pertence a $\mathfrak{F}.$
+\end{description}
+\end{teo}
+
+\section{Como criar uma Prova}
+
+ \begin{prova}
+ \begin{enumerate}[label=\roman*)]
+   \item $\emptyset$ e $X$ pertencem a $\mathfrak{F}$, pois seus
+   complementares pertencem a $\tau$.
+   \item [ii)] Se $F_{i}$ é fechado para $i = 1,...,n$. Utilizando a Lei de Morgan, temos:
+   \begin{center}
+   $(\bigcup\limits_{i=1}^{n} F_{i})^{c} = \bigcap\limits_{i=1}^{n} (F_{i})^{c}$
+   \end{center}
+   Como a interseção $(F_{i})^{c}$ é  um aberto, pois, a interseção
+   de conjuntos abertos é aberta, portanto, $\bigcup\limits_{i=1}^{n} F_{i}$ é fechada
+   em $X.$
+   \item [iii)] Seja $\{F_{\alpha \in \mathfrak{F} / \alpha \in
+   \Gamma}\}$ uma família arbitrária de conjuntos fechados.
+   \end{enumerate}
+   Utilizando a Lei de Morgan, temos:
+   \begin{center}
+   $(\bigcap_{\alpha \in \Gamma} F_{\alpha})_{c} = \bigcup\limits_{\alpha \in
+   \Gamma} F_{\alpha}^{c}$
+   \end{center}
+   Sabemos que $(F_{\alpha})^{c}$ é aberto, assim, a união de
+   conjuntos abertos é aberta, então, podemos concluir que $\bigcap\limits_{\alpha \in
+   \Gamma}F_{\alpha}$ é fechado em $X$.
+ \end{prova}

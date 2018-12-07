@@ -1,0 +1,19 @@
+% Pacotes, configurações e Definições para matemática pura.
+\usepackage{amssymb}     % qed
+\usepackage{amsthm}      % Teoremas
+\usepackage{thmtools}    % Front end para amsthm (\declaretheorem)
+
+\usepackage{amsfonts}
+
+\setbeamertemplate{theorems}[numbered] % to number
+
+\declaretheorem[style=definition,name=Definição,parent=section]{defi}
+\declaretheorem[style=definition,name=Observação,parent=section]{obs}
+\declaretheorem[style=definition,name=Corolário,parent=section]{coro}
+\declaretheorem[style=plain,name=Teorema,parent=section]{teo}
+\declaretheorem[style=plain,name=Proposição,parent=section]{prop}
+\declaretheorem[style=remark,name=Demonstração,numbered=no,qed=$\blacksquare$]{prova}
+\declaretheorem[style=plain,name=Lema,parent=teo]{lema}
+\declaretheorem[style=definition,name=Exemplo,parent=section]{ex}
+\declaretheorem[style=definition,name=Aplicação,parent=section]{apl}
+\declaretheorem[style=plain,name=Axioma]{axioma}
