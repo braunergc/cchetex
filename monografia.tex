@@ -4,7 +4,9 @@
 % Este documento só deverá ser alterado para incluir ou excluir
 % elementos pré e pós textuais. Use o comentário do latex (%) caso
 % deseje excluir algum elemento.
- 
+
+%31/08/29: Adicionados quadros 
+
 % PREÂMBULO  =======================================================
 %Pacotes e configurações
 
@@ -181,6 +183,30 @@
 \setlength{\parskip}{0.2cm}  % tente também \onelineskip
 
 % ---
+% Possibilita criação de Quadros e Lista de quadros.
+% Ver https://github.com/abntex/abntex2/issues/176
+%
+\ifquadros
+
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listofquadrosname}{Lista de quadros}
+
+\newfloat[chapter]{quadro}{loq}{\quadroname}
+\newlistof{listofquadros}{loq}{\listofquadrosname}
+\newlistentry{quadro}{loq}{0}
+
+% configurações para atender às regras da ABNT
+\setfloatadjustment{quadro}{\centering}
+\counterwithout{quadro}{chapter}
+\renewcommand{\cftquadroname}{\quadroname\space} 
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+
+\setfloatlocations{quadro}{hbtp} % Ver https://github.com/abntex/abntex2/issues/176
+% ---
+\fi
+
+
+% ---
 % compila o indice
 % ---
 %\makeindex
@@ -255,6 +281,18 @@
 \iftabelas
 \pdfbookmark[0]{\listtablename}{lot} \listoftables* \cleardoublepage
 \fi
+
+% ---
+% inserir lista de quadros
+% ---
+\ifquadros
+\pdfbookmark[0]{\listofquadrosname}{loq}
+\listofquadros*
+\cleardoublepage
+\fi
+% ---
+
+
 %Siglas
 \ifsiglas
 \begin{siglas} 
