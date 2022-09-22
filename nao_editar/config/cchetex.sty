@@ -37,10 +37,10 @@
 
     \renewcommand\cftchapterfont{\normalfont\bfseries}
     \renewcommand\cftchapterpagefont{\normalfont}
-    \renewcommand\cftsectionfont{\normalfont\scshape}
-    \renewcommand\cftsubsectionfont{\normalfont\bfseries}
-    \renewcommand\cftsubsubsectionfont{\normalfont}
-    \renewcommand\cftparagraphfont{\normalfont\itshape}
+    \renewcommand\cftsectionfont{\normalfont\bfseries}%\scshape}
+    \renewcommand\cftsubsectionfont{\normalfont\bfseries\itshape}
+    \renewcommand\cftsubsubsectionfont{\normalfont\itshape}
+    \renewcommand\cftparagraphfont{\normalfont}
 }
 
 \cftinsertcode{POS}{
@@ -65,13 +65,11 @@
   \setlength{\cftchapternumwidth}{0cm}
   }%
 
-
-
 \renewcommand{\ABNTEXchapterfont}{\bfseries}
-\renewcommand{\ABNTEXsectionfont}{\mdseries\scshape}
-\renewcommand{\ABNTEXsubsectionfont}{\mdseries\bfseries}
-\renewcommand{\ABNTEXsubsubsectionfont}{\mdseries}
-\renewcommand{\ABNTEXsubsubsubsectionfont}{\mdseries\itshape}
+\renewcommand{\ABNTEXsectionfont}{\bfseries}%\scshape}
+\renewcommand{\ABNTEXsubsectionfont}{\bfseries\itshape}
+\renewcommand{\ABNTEXsubsubsectionfont}{\itshape}
+\renewcommand{\ABNTEXsubsubsubsectionfont}{\mdseries}
 
 \setsecnumdepth{paragraph}
 \settocdepth{paragraph}

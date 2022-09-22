@@ -1,11 +1,10 @@
-% Modelo de monografia para o CCHE-Centro de Ciências Humanas 
-% e Exatas da Universidade Estadual da Paraíba. Criado a partir 
-% da classe abntex2.
+% Modelo de monografia para o curso de Matemática do CCHE-Centro de Ciências Humanas e Exatas da Universidade Estadual da Paraíba. 
+
+%A estrutura de arquivos foi criada e as customizações necessárias implementadas pelo prof. Dr. Brauner Gonçalves Coutinho a partir da classe abntex2.
+
 % Este documento só deverá ser alterado para incluir ou excluir
 % elementos pré e pós textuais. Use o comentário do latex (%) caso
 % deseje excluir algum elemento.
-
-%31/08/29: Adicionados quadros 
 
 % PREÂMBULO  =======================================================
 %Pacotes e configurações
@@ -47,7 +46,7 @@
 	a4paper,			% tamanho do papel. 
 	% -- opções da classe abntex2 --
 	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
 	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
 	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
 	sumario=tradicional,
@@ -89,7 +88,8 @@
 % ---
 \usepackage{lipsum}				% para geração de dummy text
 % ---
-
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
 % ---
 % Pacotes de citações
 % ---
@@ -140,19 +140,19 @@
 \makeatletter
 
 % No indice subseções com letras maiúsculas
-\let\oldcontentsline\contentsline
-\def\contentsline#1#2{%
-  \expandafter\ifx\csname l@#1\endcsname\l@section
-    \expandafter\@firstoftwo
-  \else
-    \expandafter\@secondoftwo
-  \fi
-  {%
-    \oldcontentsline{#1}{\MakeTextUppercase{#2}}%
-  }{%
-    \oldcontentsline{#1}{#2}%
-  }%
-}
+% \let\oldcontentsline\contentsline
+% \def\contentsline#1#2{%
+%   \expandafter\ifx\csname l@#1\endcsname\l@section
+%     \expandafter\@firstoftwo
+%   \else
+%     \expandafter\@secondoftwo
+%   \fi
+%   {%
+%     \oldcontentsline{#1}{\MakeTextUppercase{#2}}%
+%   }{%
+%     \oldcontentsline{#1}{#2}%
+%   }%
+% }
 
 
 \hypersetup{
