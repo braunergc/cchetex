@@ -88,21 +88,40 @@
 % ---
 \usepackage{lipsum}				% para geração de dummy text
 % ---
+
+% deixar simples biblio
+% \let\OLDthebibliography\thebibliography
+% \renewcommand\thebibliography[1]{
+%   \OLDthebibliography{#1}
+%   \setlength{\parskip}{0pt}
+%   \setlength{\itemsep}{0pt plus 0.3ex}
+% }
+
+
+
 \usepackage{url}
 \def\UrlBreaks{\do\/\do-}
 % ---
 % Pacotes de citações
 % ---
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibliografia
-\usepackage[alf, bibjustif, abnt-emphasize=bf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[alf, abnt-emphasize=bf]{abntex2cite}	% Citações padrão ABNT
 \usepackage{wallpaper}
 \usepackage{multirow}
 \usepackage{todonotes}
+
+%\usepackage[subrefformat=parens,labelformat=parens]{subfig}
+
+\usepackage[small]{caption}
+\usepackage{subcaption}
+
 
 %\mt{} marca texto dentro das chaves.
 \usepackage{ulem}
 \newcommand\mt{\bgroup\markoverwith
   {\textcolor{yellow}{\rule[-.5ex]{2pt}{2.5ex}}}\ULon}
+
+
 
 % --- 
 % CONFIGURAÇÕES DE PACOTES
@@ -234,6 +253,11 @@
 }
 
 % Início do documento
+\setlength {\marginparwidth }{2cm}
+
+% \renewcommand{\thesubfigure}{(\alph{subfigure})}   % <---
+% \newcommand\figref[1]{Fig.~\ref{#1}}
+
 \begin{document} 
 
 % Retira espaço extra obsoleto entre as frases.
@@ -323,9 +347,7 @@
 \phantompart
 \postextual
 \addtocontents{toc}{\protect\vspace{-38pt}}
-\bibliography{referencias}
-%\glossary
-
+\bibliography{referencias}%\glossary
 \ifapendices
 \input{anexos_apendices/apendices_lista}
 \fi

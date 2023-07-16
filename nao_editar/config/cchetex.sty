@@ -109,6 +109,9 @@
 }
 \newcommand*{\dadosprimeiroexaminador}[1]{\gdef\@dadosprimeiroexaminador{#1}%
 }
+\newcommand*{\dadosorientador}[1]{\gdef\@dadosorientador{#1}%
+}
+
 \newcommand*{\dadossegundoexaminador}[1]{\gdef\@dadossegundoexaminador{#1}%
 }
 \newcommand*{\datadefesa}[1]{\gdef\@datadefesa{#1}%
@@ -186,7 +189,10 @@
   \vspace*{.8cm}
   {\textbf{\'Area de concentra\c c\~ao:}~\@areaconcentracao\par}
   \vspace*{.8cm}
-  {\textbf{\imprimirorientadorRotulo}~\imprimirorientador\par}
+
+  
+  %{\textbf{\imprimirorientadorRotulo}~\imprimirorientador\par}
+  {\textbf{\@dadosorientador:}~\imprimirorientador\par}
   \vspace*{.8cm}
   \abntex@ifnotempty{\imprimircoorientador}{%
   {\large\imprimircoorientadorRotulo~\imprimircoorientador}%
@@ -252,8 +258,10 @@
 
    \vspace*{-0.5cm}
 
-   \assinatura{\textbf{\small \imprimirorientador} \\ Orientador}
+   \assinatura{\textbf{\small \imprimirorientador} \\ \@dadosorientador}
+   \vspace*{0.5cm}
    \assinatura{\textbf{\small \@primeiroexaminador } \\ \small \@dadosprimeiroexaminador}
+   \vspace*{0.5cm}
    \assinatura{\textbf{\small \@segundoexaminador } \\ \small \@dadossegundoexaminador} 
    %\assinatura{\textbf{Professor} \\ Convidado 3}
    %\assinatura{\textbf{Professor} \\ Convidado 4}
@@ -262,6 +270,7 @@
 }
 
 \makeatother
+
 
 
 % ---

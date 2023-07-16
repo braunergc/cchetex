@@ -1,107 +1,509 @@
-\chapter[Exemplo de capítulo com notação matemática]{Exemplo de capítulo com notação matemática}
+\chapter[Resultados dos comandos]{Resultados dos comandos} \label{cap_exemplos}
 
-Este capítulo contém alguns exemplos de ambientes matemáticos.
+Este capítulo mostra como usar diversos recursos da classe abntex2. Está transcrito de acordo com o original.
 
-\section{Como criar uma definição}
+% ---
+\section{Citações diretas}
+\label{sec-citacao}
+% ---
+	
+Utilize o ambiente \texttt{citacao} para incluir
+citações diretas com mais de três linhas sim senhor:
 
-\begin{defi}
-Uma Topologia sobre o conjunto $X$ é uma família $\tau
-\subset \beta(X)$ que satisfaz $ \mathbb{S} $:
-\begin{enumerate}
- \item$\emptyset,X$ pertencem a $\tau;$
- \item Seja  $\{A_{\alpha} \in \tau /\alpha \in \Gamma\}$
- uma família arbitrária de subconjuntos de  $\tau$ então, a união dos elementos dessa família ainda pertence a  $\tau$, ou seja, $\bigcup \limits_{\alpha \in \Gamma} A_{\alpha}\in\tau;$
- \item Sejam $B_{1},B_{2},B_{3},..., B_{n} \in \tau$ uma família finita de subconjuntos de $\tau$, com $n \geq 1$, então
- interseção dessa família ainda pertence a $\tau$, ou seja, $\bigcap\limits_{i=1}^{n} B_{i}\in \tau.$
-\end{enumerate}
-\end{defi}
+\begin{citacao}
+As citações diretas, no texto, com mais de três linhas, devem ser
+destacadas com recuo de 4 cm da margem esquerda, com letra menor que a do texto
+utilizado e sem as aspas. No caso de documentos datilografados, deve-se
+observar apenas o recuo \cite[5.3]{NBR10520:2002}.
+\end{citacao}
 
-\section{Como criar uma observação}
+Use o ambiente assim:
 
-\begin{obs}
+\begin{verbatim}
+\begin{citacao}
+As citações diretas, no texto, com mais de três linhas [...] deve-se observar
+apenas o recuo \cite[5.3]{NBR10520:2002}.
+\end{citacao}
+\end{verbatim}
 
-\item Os elementos da Topologia  $\tau$ caracterizam os Conjuntos Abertos de $X.$
+O ambiente \texttt{citacao} pode receber como parâmetro opcional um nome de
+idioma previamente carregado nas opções da classe (\autoref{sec-hifenizacao}). Nesse
+caso, o texto da citação é automaticamente escrito em itálico e a hifenização é
+ajustada para o idioma selecionado na opção do ambiente. Por exemplo:
 
-\item O par ordenado $(X,\tau)$ é chamado de Espaço Topológico.
+\begin{verbatim}
+\begin{citacao}[english]
+Text in English language in italic with correct hyphenation.
+\end{citacao}
+\end{verbatim}
 
-Sim, de fato:
-\item[i)]$\emptyset, X \in \tau$, pois são subconjuntos de $X;$
-\item[ii)]Seja \{$J_{\lambda}\}_{\lambda\in L}$ temos que$J_{\lambda}\in \tau$ então $\bigcup\limits_{\lambda\in L} J_{\lambda}$ é
-    um subconjunto de $X$ e portanto, pertence a $\tau;$
-\item[iii)] Sejam $J_{1},J_{2},...J_{n} \in \tau$ temos que $J_{1}\bigcap J_{2}\bigcap ...J_{n}$ é um suconjunto de $X$ e portanto pertence a $\tau.$
+Tem como resultado:
 
-\end{obs}
+\begin{citacao}[english]
+Text in English language in italic with correct hyphenation.
+\end{citacao}
 
-\section{Como criar um exemplo}
+\index{citações!simples}Citações simples, com até três linhas, devem ser
+incluídas com aspas. Observe que em \LaTeX as aspas iniciais são diferentes das
+finais: ``Amor é fogo que arde sem se ver''.
 
-\begin{ex}{Topologia Euclidiana ou Usual} - $\tau_{us}$
+% ---
+\section{Notas de rodapé}
+% ---
 
-Essa topologia é formada por intervalo do $\mathbb{R}^{n}$
-Os dois tipos mais estudados são a Topologia Euclidiana Usual na Reta (ou  de $\mathbb{R}$) e a Topologia Euclidiana Usual (ou do  no Plano Complexo (ou do $\mathbb{R}^{2}$).
+As notas de rodapé são detalhadas pela NBR 14724:2011 na seção 5.2.1\footnote{As
+notas devem ser digitadas ou datilografadas dentro das margens, ficando
+separadas do texto por um espaço simples de entre as linhas e por filete de 5
+cm, a partir da margem esquerda. Devem ser alinhadas, a partir da segunda linha
+da mesma nota, abaixo da primeira letra da primeira palavra, de forma a destacar
+o expoente, sem espaço entre elas e com fonte menor
+\citeonline[5.2.1]{NBR14724:2011}.}\footnote{Caso uma série de notas sejam
+criadas sequencialmente, o \abnTeX\ instrui o \LaTeX\ para que uma vírgula seja
+colocada após cada número do expoente que indica a nota de rodapé no corpo do
+texto.}\footnote{Verifique se os números do expoente possuem uma vírgula para
+dividi-los no corpo do texto.}. 
 
-Seja a topologia $\tau = \{A \subset \mathbb{R}\}, \emptyset\}$ onde $X = \mathbb{R}$, dizemos que $A \in \tau$, se e somente se, para todo $y \in A$, existe um intervalo aberto $(c,d)$ tal que
-$y \in (c,d) \subset A.$
 
-\item[i)] É fácil notar que $\mathbb{R}, \emptyset \in \tau;$
+% ---
+\section{Tabelas}
+% ---
 
-\item[ii)] Consideremos a família $\{A_{\alpha} \in \tau / \alpha \in\tau\},$
-queremos mostrar que, $\bigcup\limits_{\alpha\in \Gamma} A_{\alpha}\in \tau.$
+\index{tabelas}A \autoref{tab-nivinv} é um exemplo de tabela construída em
+\LaTeX.
 
-De fato, considerando $y \in \bigcup\limits_{\alpha\in \Gamma} A_{\alpha}$ ,
-desse modo, existe $\alpha_{0} \in \Gamma$ tal que $y \in A_{\alpha_{0}} \in \tau$, assim, existe $(c,d)$ e
-temos que $y\in (c,d) \subset A_{\alpha_{0}}\subset \bigcup\limits_{\alpha\in \Gamma}A_{\alpha}.$
+\begin{table}[htb]
+\ABNTEXfontereduzida
+\caption[Níveis de investigação]{Níveis de investigação.}
+\label{tab-nivinv}
+\begin{tabular}{p{2.6cm}|p{6.0cm}|p{2.25cm}|p{3.40cm}}
+  %\hline
+   \textbf{Nível de Investigação} & \textbf{Insumos}  & \textbf{Sistemas de Investigação}  & \textbf{Produtos}  \\
+    \hline
+    Meta-nível & Filosofia\index{filosofia} da Ciência  & Epistemologia &
+    Paradigma  \\
+    \hline
+    Nível do objeto & Paradigmas do metanível e evidências do nível inferior &
+    Ciência  & Teorias e modelos \\
+    \hline
+    Nível inferior & Modelos e métodos do nível do objeto e problemas do nível inferior & Prática & Solução de problemas  \\
+   % \hline
+\end{tabular}
+\legend{Fonte: \citeonline{van86}}
+\end{table}
 
-\item[iii)] Consideremos $B_{1},B_{2}$ subconjuntos finitos de $\tau$, desse modo
-tomemos $y \in B_{1}\bigcap B_{2}$, assim $y\in B_{1}$ e $y\in B_{2}$,
-logo existem $(c_{1}, d_{1})$ e $(c_{2}, d_{2})$ tais que $y$
-$\in0 (c_{1}, d_{1}) \subset B_{1}$ e $y\in (c_{2}, d_{2}) \subset B_{2}.$
+Já a \autoref{tabela-ibge} apresenta umla criada conforme o padrão do
+\citeonline{ibge1993} requerido pelas normas da ABNT para documentos técnicos e
+acadêmicos.
 
-Vamos denotar por $c = max(c_{1},c_{2})$ e $d = min(d_{1},d_{2})$, assim temos:
+\begin{table}[htb]
+\IBGEtab{%
+  \caption{Um Exemplo de tabela alinhada que pode ser longa
+  ou curta, conforme padrão IBGE.}%
+  \label{tabela-ibge}
+}{%
+  \begin{tabular}{ccc}
+  \toprule
+   Nome & Nascimento & Documento \\
+  \midrule \midrule
+   Maria da Silva & 11/11/1111 & 111.111.111-11 \\
+  \midrule 
+   João Souza & 11/11/2111 & 211.111.111-11 \\
+  \midrule 
+   Laura Vicuña & 05/04/1891 & 3111.111.111-11 \\
+  \bottomrule
+\end{tabular}%
+}{%
+  \fonte{Produzido pelos autores.}%
+  \nota{Esta é uma nota, que diz que os dados são baseados na
+  regressão linear.}%
+  \nota[Anotações]{Uma anotação adicional, que pode ser seguida de várias
+  outras.}%
+  }
+\end{table}
+
+
+% ---
+\section{Figuras}
+% ---
+
+Figuras podem ser incorporadas de arquivos externos, como é o caso da
+\autoref{fig_grafico}. Se a figura que ser incluída se tratar de um diagrama, um
+gráfico ou uma ilustração que você mesmo produza, priorize o uso de imagens
+vetoriais no formato PDF. Com isso, o tamanho do arquivo final do trabalho será
+menor, e as imagens terão uma apresentação melhor, principalmente quando
+impressas, uma vez que imagens vetorias são perfeitamente escaláveis para
+qualquer dimensão. Nesse caso, se for utilizar o Microsoft Excel para produzir
+gráficos, ou o Microsoft Word para produzir ilustrações, exporte-os como PDF e
+os incorpore ao documento conforme o exemplo abaixo. No entanto, para manter a
+coerência no uso de software livre (já que você está usando \LaTeX e \abnTeX),
+teste a ferramenta \textsf{InkScape}\index{InkScape}
+(\url{http://inkscape.org/}). Ela é uma excelente opção de código-livre para
+produzir ilustrações vetoriais, similar ao CorelDraw\index{CorelDraw} ou ao Adobe
+Illustrator\index{Adobe Illustrator}. De todo modo, caso não seja possível
+utilizar arquivos de imagens como PDF, utilize qualquer outro formato, como
+JPEG, GIF, BMP, etc. Nesse caso, você pode tentar aprimorar as imagens
+incorporadas com o software livre \textsf{Gimp}\index{Gimp}
+(\url{http://www.gimp.org/}). Ele é uma alternativa livre ao Adobe
+Photoshop\index{Adobe Photoshop}.
+
+\begin{figure}[htb]
+	\caption{\label{fig_grafico}Gráfico produzido em Excel e salvo como PDF}
+	\begin{center}
+	    \includegraphics[scale=0.5]{Marca-da-UEPB}
+	\end{center}
+	\legend{Fonte: \citeonline[p. 24]{araujo2012}}
+\end{figure}
+
+% ---
+\subsection{Figuras em \emph{minipages}}
+% ---
+
+\emph{Minipages} são usadas para inserir textos ou outros elementos em quadros
+com tamanhos e posições controladas. Veja o exemplo da
+\autoref{fig_minipage_imagem1} e da \autoref{fig_minipage_grafico2}.
+
+\begin{figure}[b]
+ \label{teste}
+ \centering
+  \begin{minipage}{0.4\textwidth}
+    \centering
+    \caption{Imagem 1 da minipage.} \label{fig_minipage_imagem1}
+    \includegraphics[scale=0.9]{Marca-da-UEPB}
+    \legend{Fonte: Elaborada pelo autor, <ano>.}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.4\textwidth}
+    \centering
+    \caption{Grafico 2 da minipage} \label{fig_minipage_grafico2}
+    \includegraphics[scale=0.2]{figs/Marca-da-UEPB.png}
+    \legend{Elaborada pelo autor, <ano>.}
+  \end{minipage}
+\end{figure}
+
+Observe que, segundo a \citeonline[seções 4.2.1.10 e 5.8]{NBR14724:2011}, as
+ilustrações devem sempre ter numeração contínua e única em todo o documento:
+
+\begin{citacao}
+Qualquer que seja o tipo de ilustração, sua identificação aparece na parte
+superior, precedida da palavra designativa (desenho, esquema, fluxograma,
+fotografia, gráfico, mapa, organograma, planta, quadro, retrato, figura,
+imagem, entre outros), seguida de seu número de ordem de ocorrência no texto,
+em algarismos arábicos, travessão e do respectivo título. Após a ilustração, na
+parte inferior, indicar a fonte consultada (elemento obrigatório, mesmo que
+seja produção do próprio autor), legenda, notas e outras informações
+necessárias à sua compreensão (se houver). A ilustração deve ser citada no
+texto e inserida o mais próximo possível do trecho a que se
+refere. \cite[seções 5.8]{NBR14724:2011}
+\end{citacao}
+
+\subsection{Múltiplas figuras}
+
+Quando se deseja agrupar múltiplas figuras em uma só, de modo que apareça um único nome, pode se proceder como mostra a \autoref{fig:3cenas}. Em um caso assim, a referência no texto pode ser feita para de duas maneiras:
+
+\begin{itemize}
+    \item Para chamar a figura que contém todas as 3: \autoref{fig:3cenas};
+    \item Para fazer referência individualmente, para a terceira figura, por exemplo: \autoref{fig:3cenas}(\subref{fig:cena3});
+    \item Outra opção para a terceira figura: \autoref{fig:3cenas}(c).
+\end{itemize}
+
+Outro exemplo pode ser visto na \autoref{fig:3cenas2}, com um posicionamento lado a lado. Neste caso, o tamanho do texto pode alterar o alinhamento vertical das figuras. O ideal é deixar os textos das figuras laterais com o mesmo comprimento, aproximadamente. 
+
+Em ambos os casos é preciso configurar o trecho do código que regula a largura das imagens: \verb|{0.7\textwidth}|.
+
+\begin{figure}
+     \centering
+     \caption{Capturas de tela mostrando as três cenas simuladas.}
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering 
+        \includegraphics[width=\textwidth]{figura-exemplo.png}
+         \caption{Caso 1: Terra até a Lua.}
+         \label{fig:cena1}
+     \end{subfigure}
+     \\
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figura-exemplo.png}
+         \caption{Caso 2: Terra até Marte.}
+         \label{fig:cena2}
+     \end{subfigure}
+     \\
+     \begin{subfigure}[b]{0.7\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figura-exemplo.png}
+         \caption{Caso 3: Sol até a Terra, passando por Mercúrio e Vênus.}
+         \label{fig:cena3}
+     \end{subfigure}
+    \label{fig:3cenas}
+    \legend {Fonte: Elaborada pelo autor, <ano>.}
+\end{figure}
+
+\begin{figure}[h!]
+     \centering
+     \caption{Explicação do experimento de Fizeau.}
+     \begin{subfigure}[b]{0.44\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figura-exemplo.png}
+         \caption{A Luz emitida pela fonte atinge o espelho a cerca de 9km de distância.}
+         \label{fig:im1}
+     \end{subfigure}\\
+     \begin{subfigure}[b]{0.44\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figura-exemplo.png}
+         \caption{A reflexão da luz percorre a mesma distância de volta e pode ser observada por meio de um espelho.}
+         \label{fig:im2}
+     \end{subfigure}\qquad
+     \begin{subfigure}[b]{0.44\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figura-exemplo.png}
+         \caption{Dependendo da velocidade de rotação, o reflexo é interrompido ou pode passar pelo próximo entalhe da roda.}
+         \label{fig:im3}
+     \end{subfigure}
+    \label{fig:3cenas2}
+    \legend{Fonte: Elaborada pelo autor, <ano>.}
+\end{figure}
+
+% ---
+\section{Expressões matemáticas}
+% ---
+
+\index{expressões matemáticas}Use o ambiente \texttt{equation} para escrever
+expressões matemáticas numeradas:
+
+\begin{equation}
+  \forall x \in X, \quad \exists \: y \leq \epsilon
+\end{equation}
+
+Escreva expressões matemáticas entre \$ e \$, como em $ \lim_{x \to \infty}
+\exp(-x) = 0 $, para que fiquem na mesma linha.
+
+Também é possível usar colchetes para indicar o início de uma expressão
+matemática que não é numerada.
+
+\[
+\left|\sum_{i=1}^n a_ib_i\right|
+\le
+\left(\sum_{i=1}^n a_i^2\right)^{1/2}
+\left(\sum_{i=1}^n b_i^2\right)^{1/2}
+\]
+
+Consulte mais informações sobre expressões matemáticas em
+\url{https://code.google.com/p/abntex2/wiki/Referencias}.
+
+% ---
+\section{Enumerações: alíneas e subalíneas}
+% ---
+
+\index{alíneas}\index{subalíneas}\index{incisos}Quando for necessário enumerar
+os diversos assuntos de uma seção que não possua título, esta deve ser
+subdividida em alíneas \cite[4.2]{NBR6024:2012}:
+
+\begin{alineas}
+
+  \item os diversos assuntos que não possuam título próprio, dentro de uma mesma
+  seção, devem ser subdivididos em alíneas; 
+  
+  \item o texto que antecede as alíneas termina em dois pontos;
+  \item as alíneas devem ser indicadas alfabeticamente, em letra minúscula,
+  seguida de parêntese. Utilizam-se letras dobradas, quando esgotadas as
+  letras do alfabeto;
+
+  \item as letras indicativas das alíneas devem apresentar recuo em relação à
+  margem esquerda;
+
+  \item o texto da alínea deve começar por letra minúscula e terminar em
+  ponto-e-vírgula, exceto a última alínea que termina em ponto final;
+
+  \item o texto da alínea deve terminar em dois pontos, se houver subalínea;
+
+  \item a segunda e as seguintes linhas do texto da alínea começa sob a
+  primeira letra do texto da própria alínea;
+  
+  \item subalíneas \cite[4.3]{NBR6024:2012} devem ser conforme as alíneas a
+  seguir:
+
+  \begin{alineas}
+     \item as subalíneas devem começar por travessão seguido de espaço;
+
+     \item as subalíneas devem apresentar recuo em relação à alínea;
+
+     \item o texto da subalínea deve começar por letra minúscula e terminar em
+     ponto-e-vírgula. A última subalínea deve terminar em ponto final, se não
+     houver alínea subsequente;
+
+     \item a segunda e as seguintes linhas do texto da subalínea começam sob a
+     primeira letra do texto da própria subalínea.
+  \end{alineas}
+  
+  \item no \abnTeX\ estão disponíveis os ambientes \texttt{incisos} e
+  \texttt{subalineas}, que em suma são o mesmo que se criar outro nível de
+  \texttt{alineas}, como nos exemplos à seguir:
+  
+  \begin{incisos}
+    \item \textit{Um novo inciso em itálico};
+  \end{incisos}
+  
+  \item Alínea em \textbf{negrito}:
+  
+  \begin{subalineas}
+    \item \textit{Uma subalínea em itálico};
+    \item \underline{\textit{Uma subalínea em itálico e sublinhado}}; 
+  \end{subalineas}
+  
+  \item Última alínea com \emph{ênfase}.
+  
+\end{alineas}
+
+% ---
+\section{Inclusão de outros arquivos}\label{sec-include}
+% ---
+
+É uma boa prática dividir o seu documento em diversos arquivos, e não
+apenas escrever tudo em um único. Esse recurso foi utilizado neste
+documento. Para incluir diferentes arquivos em um arquivo principal,
+de modo que cada arquivo incluído fique em uma página diferente, utilize o
+comando:
+
+\begin{verbatim}
+   \include{documento-a-ser-incluido}      % sem a extensão .tex
+\end{verbatim}
+
+Para incluir documentos sem quebra de páginas, utilize:
+
+\begin{verbatim}
+   \input{documento-a-ser-incluido}      % sem a extensão .tex
+\end{verbatim}
+
+% ---
+\section{Remissões internas ou referências cruzadas}
+% ---
+
+Ao nomear a \autoref{tab-nivinv}, apresentamos um
+exemplo de remissão interna (ou referência cruzada), que também pode ser feita quando indicamos o
+\autoref{cap_exemplos}, que tem o nome \emph{\nameref{cap_exemplos}}. O número
+do capítulo indicado é \ref{cap_exemplos}, que se inicia à
+\autopageref{cap_exemplos}\footnote{O número da página de uma remissão pode ser
+obtida também assim:
+\pageref{cap_exemplos}.}.
+Veja a \autoref{sec-divisoes} para outros exemplos de remissões internas entre
+seções, subseções e subsubseções.
+
+O código usado para produzir o texto desta seção é:
+
+\begin{verbatim}
+Ao nomear a \autoref{tab-nivinv}, apresentamos um
+exemplo de remissão interna, que também pode ser feita quando indicamos o
+\autoref{cap_exemplos}, que tem o nome \emph{\nameref{cap_exemplos}}. O número
+do capítulo indicado é \ref{cap_exemplos}, que se inicia à
+\autopageref{cap_exemplos}\footnote{O número da página de uma remissão pode ser
+obtida também assim:
+\pageref{cap_exemplos}.}.
+Veja a \autoref{sec-divisoes} para outros exemplos de remissões internas entre
+seções, subseções e subsubseções.
+\end{verbatim}
+
+% ---
+\section{Divisões do documento: seção}\label{sec-divisoes}
+% ---
+
+Esta seção testa o uso de divisões de documentos. Esta é a
+\autoref{sec-divisoes}. Veja a \autoref{sec-divisoes-subsection}.
+
+\subsection{Divisões do documento: subseção}\label{sec-divisoes-subsection}
+
+Isto é uma subseção. Veja a \autoref{sec-divisoes-subsubsection}, que é uma
+\texttt{subsubsection} do \LaTeX, mas é impressa chamada de ``subseção'' porque
+no Português não temos a palavra ``subsubseção''.
+
+\subsubsection{Divisões do documento: subsubseção}
+\label{sec-divisoes-subsubsection}
+
+Isto é uma subsubseção.
+
+\subsubsection{Divisões do documento: subsubseção}
+
+Isto é outra subsubseção.
+
+\subsection{Divisões do documento: subseção}\label{sec-exemplo-subsec}
+
+Isto é uma subseção.
+
+\subsubsection{Divisões do documento: subsubseção}
+
+Isto é mais uma subsubseção da \autoref{sec-exemplo-subsec}.
+
+
+\subsubsubsection{Esta é uma subseção de quinto
+nível}\label{sec-exemplo-subsubsubsection}
+
+Esta é uma seção de quinto nível. Ela é produzida com o seguinte comando:
+
+\begin{verbatim}
+\subsubsubsection{Esta é uma subseção de quinto
+nível}\label{sec-exemplo-subsubsubsection}
+\end{verbatim}
+
+\subsubsubsection{Esta é outra subseção de quinto nível}\label{sec-exemplo-subsubsubsection-outro}
+
+Esta é outra seção de quinto nível.
+
+% ---
+\section{Este é um exemplo de nome de seção longo. Ele deve estar
+alinhado à esquerda e a segunda e demais linhas devem iniciar logo abaixo da
+primeira palavra da primeira linha}
+% ---
+
+Isso atende à norma dede \citeonline[seções de 5.2.2 a 5.2.4]{NBR14724:2011} 
+ e \citeonline[seções de 3.1 a 3.8]{NBR6024:2012}.
+
+% ---
+\section{Referências bibliográficas}
+% ---
+
+A formatação das referências bibliográficas conforme as regras da ABNT são um
+dos principais objetivos do \abnTeX. Consulte os manuais
+\citeonline{abntex2cite} e \citeonline{abntex2cite-alf} para obter informações
+sobre como utilizar as referências bibliográficas.
+
+%-
+\subsection{Acentuação de referências bibliográficas}
+%-
+
+Normalmente não há problemas em usar caracteres acentuados em arquivos
+bibliográficos (\texttt{*.bib}). Porém, como as regras da ABNT fazem uso quase
+abusivo da conversão para letras maiúsculas, é preciso observar o modo como se
+escreve os nomes dos autores. Na ~\autoref{tabela-acentos} você encontra alguns
+exemplos das conversões mais importantes. Preste atenção especial para `ç' e `í'
+que devem estar envoltos em chaves. A regra geral é sempre usar a acentuação
+neste modo quando houver conversão para letras maiúsculas.
+
+\begin{table}[htbp]
+\caption{Tabela de conversão de acentuação.}
+\label{tabela-acentos}
 
 \begin{center}
- $y \in (c,d) \subset B_{1} \bigcap B_{2}$
+\begin{tabular}{ll}\hline\hline
+acento & \textsf{bibtex}\\
+à á ã & \verb+\`a+ \verb+\'a+ \verb+\~a+\\
+í & \verb+{\'\i}+\\
+ç & \verb+{\c c}+\\
+\hline\hline
+\end{tabular}
+\legend{Fonte: elaborada pelo autor, <ano>.}
 \end{center}
- 
-Por indução temos  se $B_{1},B_{2},..., B_{n}$ são conjuntos finitos de $\tau$, então, $\bigcap\limits_{i=1}^{n}B_{i}\in\tau.$
-\end{ex}
+\end{table}
 
-\section{Como criar um teorema}
+Exemplo de um quadro pode ser visto no Quadro \ref{quadro_exemplo}.
 
-\begin{teo}: Seja $(X,\tau)$ um espaço topológico e $ \mathfrak{F}$ a
-família de conjuntos fechados, então:
-\begin{description}
-  \item[i)]$\emptyset, X$ pertencem a $ \mathfrak{F}$;
-  \item[ii)]Considere $F_{1}, F_{2},..., F_{n}$ conjuntos fechados
-  em $X$; então a união finita $\bigcup\limits_{i=1}^{n} F_{i}$ é fechada
-  em $X$;
-  \item[iii)]Considere $\{ F_{\alpha} \in \mathfrak{F} / \alpha \in
-  \Gamma\}$ uma família de elementos arbitrários de $\mathfrak{F}$,
-  então, a interseção arbitrária $\bigcap\limits_{\alpha \in \Gamma}F_{\alpha}$ pertence a $\mathfrak{F}.$
-\end{description}
-\end{teo}
+\begin{quadro}[htb]
+\caption{\label{quadro_exemplo}Exemplo de quadro}
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	\textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\ \hline
+	Marcos & 26    & 68   & 178    \\ \hline
+	Ivone  & 22    & 57   & 162    \\ \hline
+	...    & ...   & ...  & ...    \\ \hline
+	Sueli  & 40    & 65   & 153    \\ \hline
+\end{tabular}
+\legend{Fonte: elaborada pelo autor, <ano>.}
+\end{quadro}
 
-\section{Como criar uma Prova}
-
- \begin{prova}
- \begin{enumerate}[label=\roman*)]
-   \item $\emptyset$ e $X$ pertencem a $\mathfrak{F}$, pois seus
-   complementares pertencem a $\tau$.
-   \item [ii)] Se $F_{i}$ é fechado para $i = 1,...,n$. Utilizando a Lei de Morgan, temos:
-   \begin{center}
-   $(\bigcup\limits_{i=1}^{n} F_{i})^{c} = \bigcap\limits_{i=1}^{n} (F_{i})^{c}$
-   \end{center}
-   Como a interseção $(F_{i})^{c}$ é  um aberto, pois, a interseção
-   de conjuntos abertos é aberta, portanto, $\bigcup\limits_{i=1}^{n} F_{i}$ é fechada
-   em $X.$
-   \item [iii)] Seja $\{F_{\alpha \in \mathfrak{F} / \alpha \in
-   \Gamma}\}$ uma família arbitrária de conjuntos fechados.
-   \end{enumerate}
-   Utilizando a Lei de Morgan, temos:
-   \begin{center}
-   $(\bigcap_{\alpha \in \Gamma} F_{\alpha})_{c} = \bigcup\limits_{\alpha \in
-   \Gamma} F_{\alpha}^{c}$
-   \end{center}
-   Sabemos que $(F_{\alpha})^{c}$ é aberto, assim, a união de
-   conjuntos abertos é aberta, então, podemos concluir que $\bigcap\limits_{\alpha \in
-   \Gamma}F_{\alpha}$ é fechado em $X$.
- \end{prova}
