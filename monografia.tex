@@ -1,4 +1,6 @@
-% Modelo de monografia para o curso de Matemática do CCHE-Centro de Ciências Humanas e Exatas da Universidade Estadual da Paraíba. 
+% Inseridas atualizações das normas de 2023.
+
+%Modelo de monografia para o curso de Matemática do CCHE-Centro de Ciências Humanas e Exatas da Universidade Estadual da Paraíba. 
 
 %A estrutura de arquivos foi criada e as customizações necessárias implementadas pelo prof. Dr. Brauner Gonçalves Coutinho a partir da classe abntex2.
 
@@ -105,7 +107,19 @@
 % Pacotes de citações
 % ---
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibliografia
-\usepackage[alf, abnt-emphasize=bf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[alf, abnt-emphasize=bf, abnt-etal-text=it]{abntex2cite}	% Citações padrão ABNT
+
+
+\newcommand{\apudnamef}{\textit{apud}}
+\renewcommand{\apudonline}[3][]{\citeauthoronline{#2} \citeopen \citeyear{#2} \apudnamef\ %
+\citeauthor{#3}, \citeyear{#3}%
+\ifthenelse{\equal{#1}{\empty}}{}{, #1}\citeclose}
+
+\renewcommand{\apud}[3][]{(\citeauthor{#2}, \citeyear{#2} \apudnamef\ %
+\citeauthor{#3}, \citeyear{#3}%
+\ifthenelse{\equal{#1}{\empty}}{}{, #1})}
+
+
 \usepackage{wallpaper}
 \usepackage{multirow}
 \usepackage{todonotes}
@@ -348,6 +362,7 @@
 \postextual
 \addtocontents{toc}{\protect\vspace{-38pt}}
 \bibliography{referencias}%\glossary
+\bibliographystyle{abntex2-alf.bst}%\glossary
 \ifapendices
 \input{anexos_apendices/apendices_lista}
 \fi

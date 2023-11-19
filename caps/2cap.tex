@@ -3,6 +3,15 @@
 Este capítulo mostra como usar diversos recursos da classe abntex2. Está transcrito de acordo com o original.
 
 % ---
+\section{Atualizações da ABNT de 2023}
+\label{sec-atual2023}
+% ---
+
+O padrão autor-data não deve ter mais caixa alta, ou seja, o sobrenome do autor terá apenas a inicial em maiúsculo, como nesse exemplo: \cite{araujo2012}.
+
+Algumas expressões em latim usadas durante a escrita acadêmica, tais como \textit{apud}, \textit{ibidem}, \textit{et al}, devem ser usadas em itálico obrigatoriamente de acordo com a atualização das normas de 2023, como nestes exemplos: \citeonline{kalinke2015}, \apud[p. 4202-3]{sabra1981theories}{martins2015pesquisas} e \apudonline[p. 4202-3]{sabra1981theories}{martins2015pesquisas}.
+
+% ---
 \section{Citações diretas}
 \label{sec-citacao}
 % ---
@@ -27,7 +36,7 @@ apenas o recuo \cite[5.3]{NBR10520:2002}.
 \end{verbatim}
 
 O ambiente \texttt{citacao} pode receber como parâmetro opcional um nome de
-idioma previamente carregado nas opções da classe (\autoref{sec-hifenizacao}). Nesse
+idioma previamente carregado nas opções da classe. Nesse
 caso, o texto da citação é automaticamente escrito em itálico e a hifenização é
 ajustada para o idioma selecionado na opção do ambiente. Por exemplo:
 
@@ -113,7 +122,7 @@ acadêmicos.
   \bottomrule
 \end{tabular}%
 }{%
-  \fonte{Produzido pelos autores.}%
+  \fonte{Produzida pelos autores, 2023.}%
   \nota{Esta é uma nota, que diz que os dados são baseados na
   regressão linear.}%
   \nota[Anotações]{Uma anotação adicional, que pode ser seguida de várias
