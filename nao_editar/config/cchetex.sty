@@ -125,12 +125,12 @@
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
   
-  \ThisLRCornerWallPaper{1}{uepbcinza.png}
+  %\ThisLRCornerWallPaper{1}{uepbcinza.png}
 
     \vspace*{-2.5cm}
   
    \begin{center}
-     \includegraphics[scale=.27]{Marca-da-UEPB}
+     \includegraphics[scale=.37]{Marca-da-UEPB}
 	\end{center}
     \vspace*{-.8cm}
     
@@ -144,10 +144,10 @@
     
     {\MakeTextUppercase{\bfseries\normalsize\imprimirautor}}
 
-    \vspace*{3.5cm}
+    \vspace*{5cm}
     \linespread{1.2}%
     \selectfont    
-    {\MakeTextUppercase{\bfseries\large\imprimirtitulo}}
+    {\MakeTextUppercase{\bfseries\normalsize\imprimirtitulo}}
     \vfill
     
     \linespread{0.8}%
@@ -176,7 +176,7 @@
 \vspace*{4cm}
 
 \begin{center}
-    {\MakeTextUppercase{\bfseries\large\imprimirtitulo}}
+    {\MakeTextUppercase{\bfseries\normalsize\imprimirtitulo}}
 \end{center}
 
 \vspace*{4cm}
@@ -192,16 +192,16 @@
 
   
   %{\textbf{\imprimirorientadorRotulo}~\imprimirorientador\par}
-  {\textbf{\@dadosorientador:}~\imprimirorientador\par}
-  \vspace*{.8cm}
-  \abntex@ifnotempty{\imprimircoorientador}{%
-  {\large\imprimircoorientadorRotulo~\imprimircoorientador}%
-  }%
+  
   \end{minipage}%
   \vspace*{\fill}
 }%
 
-
+{\textbf{\@dadosorientador:}~\imprimirorientador\par}
+  \vspace*{.8cm}
+  \abntex@ifnotempty{\imprimircoorientador}{%
+  {\large\imprimircoorientadorRotulo~\imprimircoorientador}%
+  }%
 
 \vspace*{\fill}
 
@@ -232,7 +232,7 @@
 
     \vspace*{\fill}
 \begin{center}
-    {\MakeTextUppercase{\large\imprimirtitulo}}
+    {\MakeTextUppercase{\normalsize\imprimirtitulo}}
 \end{center}
     \vspace*{\fill}
     
@@ -258,11 +258,11 @@
 
    \vspace*{-0.5cm}
 
-   \assinatura{\textbf{\small \imprimirorientador} \\ \@dadosorientador}
+   \assinatura{{\small \imprimirorientador} \\ \@dadosorientador}
    \vspace*{0.5cm}
-   \assinatura{\textbf{\small \@primeiroexaminador } \\ \small \@dadosprimeiroexaminador}
+   \assinatura{{\small \@primeiroexaminador } \\ \small \@dadosprimeiroexaminador}
    \vspace*{0.5cm}
-   \assinatura{\textbf{\small \@segundoexaminador } \\ \small \@dadossegundoexaminador} 
+   \assinatura{{\small \@segundoexaminador } \\ \small \@dadossegundoexaminador} 
    %\assinatura{\textbf{Professor} \\ Convidado 3}
    %\assinatura{\textbf{Professor} \\ Convidado 4}
    \vspace*{2cm}
